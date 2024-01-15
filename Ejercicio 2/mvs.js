@@ -4,20 +4,20 @@ modelo = {
 
 vista = {
 
-    borrarLista: function(){
+    borrarLista: function () {
         var rango = document.createRange()
         rango.selectNodeContents(document.getElementById("lista"))
         rango.deleteContents()
 
     },
 
-    refrescar: function(){
+    refrescar: function () {
         this.borrarLista()
 
-        if(modelo.tareas.length != 0){
+        if (modelo.tareas.length != 0) {
             lista = document.getElementById("lista")
 
-            for(var i = 0; i < modelo.tareas.length; i++){
+            for (var i = 0; i < modelo.tareas.length; i++) {
 
                 item = document.createElement("item")
                 span = document.createElement("li")
@@ -34,8 +34,8 @@ vista = {
                 span.textContent = modelo.tareas[i].text
 
                 if (modelo.tareas[i].completado)
-                span.setAttribute("style", "text-decoration: line-througth; color: #bbb")
-                
+                    span.setAttribute("style", "text-decoration: line-througth; color: #bbb")
+
                 iconCheck.setAttribute("class", "icon ion-md-checkmart")
                 iconCheck.setAttribute("data-id", i)
                 iconCross.setAttribute("class", "icon ion-md-trash")
@@ -57,11 +57,11 @@ vista = {
     },
 
 
-    añadirTarea: function(e){
-        if ((e.code == "Enter") || (e.code == "NumpadEnter")){
+    añadirTarea: function (e) {
+        if ((e.code == "Enter") || (e.code == "NumpadEnter")) {
             input = document.getElementById("añadir-tarea")
 
-            if((input.value !== "") || (input.value !== " ")){
+            if ((input.value !== "") || (input.value !== " ")) {
 
                 controlador.añadirItem(input.value)
                 return false
@@ -75,29 +75,29 @@ vista = {
 
 controlador = {
 
-    init: function(){
+    init: function () {
         vista.refrescar()
 
     },
-    
-    añadirItem: function(tarea){
-        lista_tareas = { text: tarea, completado: false}
+
+    añadirItem: function (tarea) {
+        lista_tareas = { text: tarea, completado: false }
         modelo.tareas.push(lista_tareas)
         document.getElementById("añadir-tarea").value = ""
         vista.refrescar()
 
     },
 
-    tareaCompletada: function(tarea_index){
-        modelo.tareas[tarea_index].completado =  !modelo.tareas[tarea_index].completado
+    tareaCompletada: function (tarea_index) {
+        modelo.tareas[tarea_index].completado = !modelo.tareas[tarea_index].completado
         vista.refrescar()
 
     },
 
-    eliminarTarea: function(){
-        modelo.tareas.splice(tarea_index, )
+    eliminarTarea: function () {
+        modelo.tareas.splice(tarea_index,)
         vista.refrescar()
-    
+
     }
 
 }

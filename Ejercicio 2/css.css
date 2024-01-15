@@ -1,0 +1,63 @@
+/* Add your custom styles in the css.css file */
+
+body {
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+input{
+    border-radius: 5px 5px 5px 5px ;
+}
+
+#contenedor {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+#añadir-tarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#lista {
+    list-style: none;
+    padding: 0;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.item-completada {
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.item-eliminado {
+    cursor: pointer;
+    color: #dc3545;
+}
+
+.item-text {
+    flex-grow: 1;
+    margin-right: 10px;
+    word-wrap: break-word;
+    text-decoration: none;
+    color: #212529;
+}
+
+.item-text.completed {
+    text-decoration: line-through;
+    color: #bbb;
+}
